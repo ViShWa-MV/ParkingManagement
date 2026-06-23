@@ -25,7 +25,7 @@ import com.ParkingManagement.entity.Login;
 		  @Autowired
 		  private CustomerRepository customerrepo;
 		  @GetMapping("/test")
-		  public String display() {
+		  public String evm() {
 			  return "succes";
 		  }
 		  @GetMapping("/login")
