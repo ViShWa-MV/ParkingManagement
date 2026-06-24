@@ -2,7 +2,6 @@ package com.ParkingManagement.controller;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -18,12 +17,25 @@ import com.ParkingManagement.Repository.LoginRepository ;
 import com.ParkingManagement.entity.Availability;
 import com.ParkingManagement.entity.Customer;
 import com.ParkingManagement.entity.Login;
+import jakarta.servlet.ServletContext;
+import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 
 	public class Logincontroller {
 		
 		  @Autowired
 		  private CustomerRepository customerrepo;
+		  @Autowired
+		  private ServletContext servletContext;
+		  @GetMapping("/jspcheck")
+@ResponseBody
+public String jspcheck() {
+    return String.valueOf(
+        servletContext.getResourceAsStream(
+            "/WEB-INF/views/jsp/login.jsp"
+        ) != null
+    );
+}
 		  @GetMapping("/test")
 		  @ResponseBody
 		  public String evm() {
