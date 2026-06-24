@@ -2,7 +2,7 @@ package com.ParkingManagement.controller;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
